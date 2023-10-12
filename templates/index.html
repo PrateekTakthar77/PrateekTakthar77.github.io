@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>portfolio</title>
+
+
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            font-family: Helvetica, Arial, sans-serif;
+            height: 100vh;
+        }
+
+        .main {
+            background-color: #FECD45;
+            height: 100vh;
+            color: #000;
+            font-size: 35px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        ul {
+            list-style: none;
+            margin: 20px;
+            display: flex;
+        }
+
+        li {
+            width: 200px;
+            text-decoration: no;
+        }
+
+        .about {
+            margin-left: 50px;
+            margin-bottom: 200px;
+        }
+
+        .about h1 {
+            margin-bottom: -25px;
+            font-size: 70px;
+            color: #2568FB;
+        }
+
+        .cvbtn {
+            border: 3px solid #2568FB;
+            color: #0352fa;
+            width: 230px;
+            padding: 20px;
+            border-radius: 250px;
+            text-align: center;
+            margin-top: -20px;
+            cursor: pointer;
+            box-shadow: 0 8px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            text-decoration: none;
+            background-color: #FECD45;
+            font-size: 25px;
+        }
+
+        .cvbtn:hover {
+            background-color: #2568FB;
+            color: white;
+            box-shadow: none;
+        }
+
+        .cvbtn:active {
+            background-color: #2568FB;
+            color: white;
+        }
+
+        .Parent-about {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center;
+        }
+
+        ::selection {
+            background: #b3d4fc;
+            text-shadow: none;
+        }
+
+        .logo {
+            margin-left: -5px;
+            margin-top: -9px;
+        }
+
+        .info-sec {
+            display: flex;
+            background-color: #2568FB;
+            color: white;
+        }
+
+        .info {
+            margin-top: 50px;
+            margin-left: 20px;
+            padding: 50px;
+        }
+
+        .info h2 {
+            font-size: 40px;
+        }
+
+        .info span {
+            color: #FECD45;
+        }
+
+        .fa-solid {
+            /* border: 2px solid white; */
+            border-radius: 50%;
+            width: 25px;
+            height: 30px;
+            padding: 10px;
+            color: white;
+            background-color: #2568FB;
+            position: fixed;
+            right: 30px;
+            bottom: 50px;
+            cursor: pointer;
+            outline: none;
+            /* box-shadow: 0 8px 18px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background: #2568FB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* reviews area .............................................. */
+        .testimonial {
+            font-family: Helvetica, Arial, sans-serif;
+            width: 900%;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .testimonial-text {
+            background: white;
+            color: #000;
+            width: 100%;
+            height: 350px;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .user-text {
+            width: 80%;
+            text-align: center;
+            line-height: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+        }
+
+        .user-text .fa-solid {
+            font-size: 30px;
+            margin-bottom: 50px;
+            margin-top: 10px;
+        }
+
+        .user-text span {
+            display: block;
+            font-size: 15px;
+            margin-top: 40px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        #p {
+            text-transform: uppercase;
+        }
+
+        .testimonial-pic {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-pic {
+            width: 65px;
+            padding: 3px;
+            border-radius: 50%;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .user-text.active-text {
+            display: block;
+            animation: moveup 0.5s linear forwards;
+        }
+
+        .user-pic.active-pic {
+            width: 100px;
+            border: 2px solid #FECD45;
+        }
+
+        @keyframes moveup {
+            0% {
+                margin-top: 25px;
+            }
+
+            100% {
+                margin-top: 0px;
+            }
+        }
+
+        /* progress bar........................................... */
+        .container-bar {
+            width: 100%;
+            height: 500px;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+        }
+
+        .skill h2 {
+            font-weight: 400;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            margin-bottom: 5px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .progressbar {
+            /* color of remaining area in progress bar */
+            background: #959599;
+            width: 800px;
+            height: 10px;
+            border-radius: 5px;
+        }
+
+        .progressbar div {
+            height: 10px;
+            border-radius: 5px;
+            width: 0;
+        }
+
+        .progressbar div span {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background: #222;
+            float: right;
+            margin-top: -15px;
+            margin-right: -20px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .HTML {
+            background: #e91e6e;
+            /* to animate on refresh */
+            animation: HTML 1s linear forwards;
+        }
+
+        .css {
+            background: #cddc39;
+            animation: css 1s linear forwards;
+        }
+
+        .js {
+            background: #00bcd4;
+            animation: js 1s linear forwards;
+        }
+
+        .HTML span {
+            border: 2px solid #e91e6e;
+        }
+
+        .css span {
+            border: 2px solid #cddc39;
+        }
+
+        .js span {
+            border: 2px solid #00bcd4;
+        }
+
+        @keyframes HTML {
+            100% {
+                width: 95%;
+            }
+        }
+
+        @keyframes css {
+            100% {
+                width: 90%;
+            }
+        }
+
+        @keyframes js {
+            100% {
+                width: 80%;
+            }
+        }
+
+        .project-section {
+            background-color: #FECD45;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 80px;
+        }
+
+        .project {
+            border: 2px solid red;
+            height: 300px;
+            width: 200px;
+
+        }
+
+        .project-container {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #projectSectionTitle {
+            font-size: 60px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section class="main">
+        <nav class="navbar">
+            <div class="logo"><img src="logo.png" alt="logo" height="120px" width="120px"></div>
+            <ul>
+                <li>About Me</li>
+                <li>Projects</li>
+                <li>Contact Me</li>
+            </ul>
+        </nav>
+        <div class="Parent-about">
+            <div class="about">
+                <h1>Prateek Takthar</h1>
+                <h3>Self Taught Programmer</h3>
+                <a href="Prateek's Resume Website.pdf" download="Prateek REsume.pdf" target="_blank"><button
+                        class="cvbtn" role="button"> Download CV</button></a>
+                <i id="scrollbtn" role="scroll to top" class="fa-solid fa-arrow-up"></i>
+            </div>
+        </div>
+    </section>
+    <section class="info-sec">
+        <div class="info">
+            <h2><span>A</span>bout <span>M</span>e</h2>
+            <h3>
+                <p>Iam a computer science enthusiast and computer science is omnipresent that's why I want to work in an
+                    organization with a competitive environment where I can contribute to its growth, through constant
+                    upgrading of skills along with developing my technical abilities. Looking forward for an opportunity
+                    where I will get the chance to explore myself in this rapidly changing field. Having an avid
+                    interest in programming, coding and exploring new technologies. Currently pursuing BA
+                    Program(Computer Application+Political Science) from Shyam Lal College(eve) Delhi University</p>
+            </h3>
+
+            <div class="container">
+                <!-- know about theses two fa solid -->
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <div class="user-text active-text">
+                            <p> this is a great website very well built congratulation to the developer</p>
+                            <span>JOHN Rayan, CEO HUMBLE BEE</span>
+                        </div>
+                        <!-- 2 -->
+                        <div class="user-text">
+                            <p> this is a great website very well built congratulation to the developer</p>
+                            <span>JOHN Rayan, CEO HUMBLE BEE</span>
+                        </div>
+                        <!-- 3 -->
+                        <div class="user-text">
+                            <p> this is a great website very well built congratulation to the developer</p>
+                            <span>JOHN Rayan, CEO HUMBLE BEE</span>
+                        </div>
+                        <!-- 4 -->
+                        <div class="user-text">
+                            <p> this is a great website very well built congratulation to the developer</p>
+                            <span>JOHN Rayan, CEO HUMBLE BEE</span>
+                        </div>
+                        <!-- 5 -->
+                        <div class="user-text">
+                            <p> this is a great website very well built congratulation to the developer</p>
+                            <span>JOHN Rayan, CEO HUMBLE BEE</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-pic">
+                        <img src="user1.png" alt="user1" class="user-pic active-pic" onclick="showmagic()">
+                        <img src="user2.png" alt="user1" class="user-pic" onclick="showmagic()">
+                        <img src="user3.png" alt="user1" class="user-pic" onclick="showmagic()">
+                        <img src="user4.png" alt="user1" class="user-pic" onclick="showmagic()">
+                        <img src="user5.png" alt="user1" class="user-pic" onclick="showmagic()">
+                    </div>
+                </div>
+            </div>
+            <div class="container-bar">
+                <div class="skill">
+                    <h2>HTML</h2>
+                    <div class="progressbar">
+                        <div class="HTML"><span>95%</span></div>
+                    </div>
+
+                    <h2>CSS</h2>
+                    <div class="progressbar">
+                        <div class="css"><span>90%</span></div>
+                    </div>
+
+                    <h2>JAVASCRIPT</h2>
+                    <div class="progressbar">
+                        <div class="js"><span>80%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-section">
+        <h1 id="projectSectionTitle">Projects</h1>
+        <div class="project-container">
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+            <div class="project"></div>
+        </div>
+    </section>
+    <script>
+
+        const scrollbtn = document.querySelector("#scrollbtn");
+        let userTexts = document.getElementsByClassName('user-text');
+        let userpic = document.getElementsByClassName('user-pic');
+
+        function showmagic() {
+            for (userPics of userpic) {
+                userPics.classList.remove("active-pic");
+            }
+            for (usertext of userTexts) {
+                usertext.classList.remove("active-text")
+            }
+            let i = Array.from(userpic).indexOf(event.target);
+            userpic[i].classList.add("active-pic")
+            userTexts[i].classList.add("active-text")
+        }
+
+        scrollbtn.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+</body>
+
+</html>
