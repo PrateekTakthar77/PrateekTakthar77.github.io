@@ -28,5 +28,6 @@ urlpatterns = [
     path('about_me', views.about_me, name='about_me'),
     path('contact_me', views.contact_me, name='contact_me'),
     path('blog', views.blog, name='blog'),
-    path('projects', views.projects, name='projects')
+    path('projects', views.projects, name='projects'),
+    path('index.html', views.index, name='home')
 ]
